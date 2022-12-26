@@ -12,7 +12,7 @@
     </div>
     <div
         v-else
-        class="fixed bottom-0 h-16 z-30 w-full bg-[#07070b]/90 flex items-center justify-evenly"
+        class="fixed bottom-0 h-20 z-30 w-full bg-[#07070b]/90 flex items-center justify-evenly"
     >
         <SidebarItem :item="items.explore" tooltip :isActive="isExplore" />
         <SidebarItem :item="items.home" tooltip :isActive="isHome" @click="fetchPosts()" />

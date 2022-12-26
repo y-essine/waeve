@@ -14,7 +14,7 @@
             ></textarea>
             <div class="flex justify-between pt-2">
                 <label
-                    class="flex items-center justify-center w-[30%] py-2 text-sm font-medium text-tertiary-t hover:bg-primary rounded-lg outline outline-2 outline-primary cursor-pointer"
+                    class="flex items-center justify-center w-[30%] py-2 text-sm font-medium text-tertiary-t hover:bg-primary rounded-lg border-2 border-primary cursor-pointer"
                     htmlFor="photo"
                 >
                     <Icon
@@ -27,14 +27,14 @@
                     <span class="ml-2 text-xs font-semibold hidden xs:block">Photo</span>
                 </label>
                 <label
-                    class="flex items-center justify-center w-[30%] py-2 text-sm font-medium text-tertiary-t hover:bg-primary rounded-lg outline outline-2 outline-primary cursor-pointer"
+                    class="flex items-center justify-center w-[30%] py-2 text-sm font-medium text-tertiary-t hover:bg-primary rounded-lg border-2 border-primary cursor-pointer"
                     htmlFor="video"
                 >
                     <Icon icon="dice" :size="16" :box="20" color="#69be7b"></Icon>
                     <span class="ml-2 text-xs font-semibold hidden xs:block">Video</span>
                 </label>
                 <label
-                    class="flex items-center justify-center w-[30%] py-2 text-sm font-medium text-tertiary-t hover:bg-primary rounded-lg outline outline-2 outline-primary cursor-pointer"
+                    class="flex items-center justify-center w-[30%] py-2 text-sm font-medium text-tertiary-t hover:bg-primary rounded-lg border-2 border-primary cursor-pointer"
                 >
                     <Icon icon="equalizer2" :size="16" :box="20" color="#5e99b9"></Icon>
                     <span class="ml-2 text-xs font-semibold hidden xs:block">Poll</span>

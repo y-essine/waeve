@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import Explore from '@/views/explore/Explore.vue';
+import Settings from '@/views/settings/Settings.vue';
 
 const routes = [
     {
@@ -14,12 +16,12 @@ const routes = [
             {
                 path: '/explore',
                 name: 'Explore',
-                component: () => import('@/views/explore/Explore.vue')
+                component: Explore
             },
             {
                 path: '/settings',
                 name: 'Settings',
-                component: () => import('@/views/settings/Settings.vue')
+                component: Settings
             }
         ]
     }
