@@ -14,12 +14,12 @@ const routes = [
             {
                 path: '/explore',
                 name: 'Explore',
-                component: () => import('@/views/Explore.vue')
+                component: () => import('@/views/explore/Explore.vue')
             },
             {
                 path: '/settings',
                 name: 'Settings',
-                component: () => import('@/views/Settings.vue')
+                component: () => import('@/views/settings/Settings.vue')
             }
         ]
     }

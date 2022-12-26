@@ -1,16 +1,14 @@
 <template>
     <div class="flex">
         <div class="flex items-center pr-8 w-20 smd:w-40">
-            <div>
-                <Icon icon="waev" color="#D95353" hoverColor="#cbd5e1" button :size="48" />
-            </div>
+            <Icon icon="waev" color="#D95353" hoverColor="#cbd5e1" button :size="48" />
         </div>
-        <div className="flex flex-grow justify-between">
-            <div className="pr-3">
+        <div class="flex flex-grow justify-between">
+            <div class="pr-3">
                 <input
                     type="text"
                     placeholder="Search..."
-                    className="px-4 py-1 h-full hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 duration-200 transition-w"
+                    class="px-4 py-1 h-full hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 duration-200 transition-w"
                 />
             </div>
             <div class="flex items-center space-x-6">
@@ -26,20 +24,60 @@
                     </template>
                     Messages here.
                 </Menu>
+                <Menu title="🛎️ Notifcations" bottom end>
+                    <template #view>
+                        <Icon icon="notifs" button :size="26">
+                            <Badge />
+                        </Icon>
+                    </template>
+                    Notifications here.
+                </Menu>
+                <Menu bottom end>
+                    <template #view>
+                        <Card
+                            class="cursor-pointer group hover:bg-secondary duration-200"
+                            px
+                            py
+                            vcenter
+                        >
+                            <div class="flex justify-between items-center space-x-4">
+                                <Avatar src="/2.jpg" :size="6" />
+                                <span
+                                    class="text-sm text-text-prim font-bold duration-200 capitalize hidden sm:block"
+                                >
+                                    YESSINE
+                                </span>
+                                <Icon icon="caret-down" end group :size="8" />
+                            </div>
+                        </Card>
+                    </template>
+                    <label class="swap swap-flip text-9xl">
+                        <input type="checkbox" />
+
+                        <div class="swap-on">😈</div>
+                        <div class="swap-off">😇</div>
+                    </label>
+                </Menu>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Icon from '@/components/ui/icons/Icon.vue';
 import Menu from '@/components/ui/menu/Menu.vue';
+import Icon from '@/components/ui/icons/Icon.vue';
+import Badge from '@/components/ui/icons/Badge.vue';
+import Avatar from '@/components/ui/avatars/Avatar.vue';
+import Card from '@/components/ui/card/Card.vue';
 
 export default {
     name: 'Navbar',
     components: {
+        Menu,
         Icon,
-        Menu
+        Badge,
+        Avatar,
+        Card
     }
 };
 </script>
@@ -51,27 +89,27 @@ import Badge from '@/components/ui/icons/Badge';
 import Card from '@/components/ui/card/Card';
 import Menu from '@/components/ui/menu/Menu';
 
-const Navbar = ({ className }) => {
+const Navbar = ({ class }) => {
     return (
-        <div className={clsx('flex', className)}>
-            <div className="flex items-center pr-8 w-20 smd:w-40">
-                <div className="pl-0 smd:pl-12">
+        <div class={clsx('flex', class)}>
+            <div class="flex items-center pr-8 w-20 smd:w-40">
+                <div class="pl-0 smd:pl-12">
                     <Icon icon="waev" color="#D95353" button size={48} />
                 </div>
             </div>
-            <div className="flex flex-grow justify-between">
-                <div className="pr-3">
+            <div class="flex flex-grow justify-between">
+                <div class="pr-3">
                     <input
                         type="text"
                         placeholder="Search..."
-                        className="px-4 py-1 h-full hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 duration-200 transition-w"
+                        class="px-4 py-1 h-full hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 duration-200 transition-w"
                     />
                 </div>
-                <div className="flex items-center space-x-6">
+                <div class="flex items-center space-x-6">
                     <Menu
                         template={<Icon icon="book" button size={26} />}
                         title="✨ Top books"
-                        className="mt-4"
+                        class="mt-4"
                         bottom
                         end>
                         Menu content
@@ -79,7 +117,7 @@ const Navbar = ({ className }) => {
                     <Menu
                         template={<Icon icon="chat" button size={26} />}
                         title="📥 Inbox"
-                        className="mt-4"
+                        class="mt-4"
                         bottom
                         end>
                         Messages here.
@@ -91,7 +129,7 @@ const Navbar = ({ className }) => {
                             </Icon>
                         }
                         title="🛎️ Notifications"
-                        className="mt-4"
+                        class="mt-4"
                         bottom
                         end>
                         Notifications here.
@@ -99,28 +137,28 @@ const Navbar = ({ className }) => {
                     <Menu
                         template={
                             <Card
-                                className="cursor-pointer group hover:bg-secondary duration-200"
+                                class="cursor-pointer group hover:bg-secondary duration-200"
                                 px
                                 py
                                 vcenter>
-                                <div className="flex justify-between items-center space-x-4">
+                                <div class="flex justify-between items-center space-x-4">
                                     <Avatar src="/2.jpg" size={6} />
-                                    <span className="text-sm text-text-prim font-bold duration-200 capitalize hidden sm:block">
+                                    <span class="text-sm text-text-prim font-bold duration-200 capitalize hidden sm:block">
                                         YESSINE
                                     </span>
                                     <Icon icon="caret-down" end group size={8} />
                                 </div>
                             </Card>
                         }
-                        className="mt-4"
+                        class="mt-4"
                         bottom
                         end>
-                        <label className="swap swap-flip text-9xl">
+                        <label class="swap swap-flip text-9xl">
                             {/* this hidden checkbox controls the state */}
                             <input type="checkbox" />
 
-                            <div className="swap-on">😈</div>
-                            <div className="swap-off">😇</div>
+                            <div class="swap-on">😈</div>
+                            <div class="swap-off">😇</div>
                         </label>
                     </Menu>
                 </div>

@@ -1,10 +1,8 @@
-import { createStore } from 'vuex';
-
-export default createStore({
+export default {
     namespaced: true,
-    state: {
+    state: () => ({
         currentRoute: ''
-    },
+    }),
     mutations: {
         setCurrentRoute(state, route) {
             state.currentRoute = route;
@@ -14,5 +12,10 @@ export default createStore({
         setCurrentRoute({ commit }, route) {
             commit('setCurrentRoute', route);
         }
+    },
+    getters: {
+        isHome: (state) => state.currentRoute === 'Home',
+        isExplore: (state) => state.currentRoute === 'Explore',
+        isSettings: (state) => state.currentRoute === 'Settings'
     }
-});
+};
