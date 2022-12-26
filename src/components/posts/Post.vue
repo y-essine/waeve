@@ -1,5 +1,5 @@
 <template>
-    <Card class="bg-transparent 2xs:bg-primary">
+    <Card class="!bg-transparent 2xs:bg-primary">
         <div class="top-part">
             <div class="user-part flex px-4 pb-2 pt-3">
                 <Avatar :src="post.author.avatar" :size="14" class="cursor-pointer" />
