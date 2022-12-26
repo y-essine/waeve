@@ -1,7 +1,7 @@
 <template>
     <div class="relative">
         <span
-            class="icon flex justify-center items-center 2xs:duration-200 2xs:transition-colors relative outline outline-0 rounded-md"
+            class="icon flex justify-center items-center 2xs:duration-200 2xs:transition-colors relative border-transparent border-1 rounded-md"
             :class="[
                 'icon-' + icon,
                 {
@@ -11,7 +11,7 @@
                     'group-hover:text-primary-t': group && !disabled,
                     'rounded-full hover:bg-white/10': round && !circle,
                     '!text-primary-t ': isActive,
-                    '!outline-1 outline-primary': stacked,
+                    '!border-1 2xs:border-primary': stacked,
                     '!text-tertiary-t !cursor-default': disabled,
                     'opacity-50': darker,
                     '!justify-end': end
@@ -37,7 +37,7 @@
                     { 'z-index': '-1' },
                     { transform: 'translateZ(0px)' }
                 ]"
-                class="box absolute top-0 left-0 outline-1 outline-primary rounded-full"
+                class="box absolute top-0 left-0 border-2 border-tertiary 2xs:border-primary rounded-full"
             ></div>
         </span>
     </div>

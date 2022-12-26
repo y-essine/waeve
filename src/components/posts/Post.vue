@@ -79,39 +79,41 @@
         <div class="bottom-part px-4">
             <div class="reactions-part pt-4">
                 <div class="flex items-center">
-                    <Icon
-                        icon="favorite"
-                        :size="10"
-                        :box="18"
-                        color="white"
-                        hoverColor="white"
-                        circle="#d95353"
-                        class="z-20 outline outline-3 outline-primary rounded-full"
-                        stacked
-                        button
-                    />
-                    <Icon
-                        icon="comment"
-                        :size="10"
-                        :box="18"
-                        color="white"
-                        hoverColor="white"
-                        circle="#74c48b"
-                        class="z-10 outline outline-3 outline-primary rounded-full"
-                        stacked
-                        button
-                    />
-                    <Icon
-                        icon="undo2"
-                        :size="10"
-                        :box="18"
-                        color="white"
-                        hoverColor="white"
-                        circle="#784c9e"
-                        class="z-0 outline outline-3 outline-primary rounded-full"
-                        stacked
-                        button
-                    />
+                    <div class="flex">
+                        <Icon
+                            icon="favorite"
+                            :size="10"
+                            :box="20"
+                            color="white"
+                            hoverColor="white"
+                            circle="#d95353"
+                            class="z-20"
+                            stacked
+                            button
+                        />
+                        <Icon
+                            icon="comment"
+                            :size="10"
+                            :box="20"
+                            color="white"
+                            hoverColor="white"
+                            circle="#74c48b"
+                            class="z-10 -ml-1"
+                            stacked
+                            button
+                        />
+                        <Icon
+                            icon="undo2"
+                            :size="10"
+                            :box="20"
+                            color="white"
+                            hoverColor="white"
+                            circle="#784c9e"
+                            class="z-0 -ml-1"
+                            stacked
+                            button
+                        />
+                    </div>
                     <div class="ml-2 text-xs font-semibold text-secondary-t opacity-60">
                         {{ formatter.format(post.reactions) }}
                     </div>
@@ -121,14 +123,14 @@
                 <div
                     class="hidden 2xs:block w-[90%] left-[5%] absolute border-0 border-t-2 border-tertiary-t opacity-30 -pt-2"
                 ></div>
-                <div class="flex justify-evenly">
+                <div class="flex justify-evenly pt-0 2xs:pt-3">
                     <button
                         class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t 2xs:duration-200 rounded-lg group"
                         name="like"
                     >
                         <Icon
                             icon="favorite"
-                            :size="14"
+                            :size="18"
                             :box="20"
                             group
                             hoverColor="#d95353"
@@ -139,14 +141,14 @@
                         class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t 2xs:duration-200 rounded-lg group"
                         name="comment"
                     >
-                        <Icon icon="comment" :size="15" :box="20" group hoverColor="#74c48b"></Icon>
+                        <Icon icon="comment" :size="18" :box="20" group hoverColor="#74c48b"></Icon>
                         <span class="ml-2 text-xs font-semibold hidden xs:block"> Comment </span>
                     </button>
                     <button
                         class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t 2xs:duration-200 rounded-lg group"
                         name="repost"
                     >
-                        <Icon icon="undo2" :size="16" :box="20" hoverColor="#784c9e" group></Icon>
+                        <Icon icon="undo2" :size="19" :box="20" hoverColor="#784c9e" group></Icon>
                         <span class="ml-2 text-xs font-semibold hidden xs:block"> Repost </span>
                     </button>
                 </div>
