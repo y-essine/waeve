@@ -1,7 +1,7 @@
 <template>
     <div class="relative">
         <span
-            class="icon flex justify-center items-center duration-200 relative transition-colors relative outline outline-0 rounded-md"
+            class="icon flex justify-center items-center duration-200 transition-colors relative outline outline-0 rounded-md"
             :class="[
                 'icon-' + icon,
                 {
@@ -10,7 +10,7 @@
                     'hover:text-primary-t': !hoverColor && !disabled,
                     'group-hover:text-primary-t': group && !disabled,
                     'rounded-full hover:bg-white/10': round && !circle,
-                    '!text-primary-t outline !outline-2 outline-accent': isActive,
+                    '!text-primary-t outline !outline-2 outline-accent smd:!outline-0': isActive,
                     '!outline-1 outline-primary': stacked,
                     '!text-tertiary-t !cursor-default': disabled,
                     'opacity-50': darker,

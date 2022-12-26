@@ -1,5 +1,9 @@
 <template>
-    <router-link :to="item.path" class="flex items-center cursor-pointer group rounded-lg relative">
+    <router-link
+        :to="item.path"
+        :name="item.path"
+        class="flex items-center cursor-pointer group rounded-lg relative"
+    >
         <Icon :icon="item.icon" group :size="item.size || 30" :box="48" :isActive="isActive" />
         <span
             class="ml-2 font-semibold text-zinc-400 group-hover:text-zinc-300 duration-200 select-none hidden smd:block"

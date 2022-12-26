@@ -7,11 +7,10 @@
         />
         <div class="flex-1 pl-5">
             <textarea
-                class="w-full h-12 px-4 py-3"
+                class="w-full h-12 px-4 py-3 text-tertiary-t focus:text-primary-t"
                 placeholder="What's on your mind?"
-                maxRows="6"
+                id="mytext"
             ></textarea>
-
             <div class="flex justify-between pt-2">
                 <label
                     class="flex items-center justify-center w-[30%] py-2 text-sm font-medium text-tertiary-t hover:bg-primary rounded-lg outline outline-2 outline-primary cursor-pointer"
@@ -55,6 +54,22 @@ export default {
     components: {
         Avatar,
         Icon
+    },
+    data() {
+        return {
+            text: '',
+            inputListener: null
+        };
+    },
+    mounted() {
+        const textarea = document.getElementById('mytext');
+        this.inputListener = textarea.addEventListener('input', (e) => {
+            textarea.style.height = 0;
+            textarea.style.height = textarea.scrollHeight + 'px';
+        });
+    },
+    destroyed() {
+        document.removeEventListener('input', this.inputListener);
     }
 };
 </script>

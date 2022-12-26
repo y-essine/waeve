@@ -5,11 +5,28 @@
         </div>
         <div class="flex flex-grow justify-between">
             <div class="pr-3">
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    class="px-4 py-1 h-full hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 duration-200 transition-w"
-                />
+                <div
+                    class="search relative hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 duration-200 transition-w h-full"
+                >
+                    <input
+                        id="search"
+                        type="text"
+                        placeholder="Search..."
+                        class="px-4 py-1 w-full h-full"
+                        autocomplete="off"
+                        v-model="search"
+                        @focus="searchFocused = true"
+                        @blur="searchFocused = false"
+                    />
+                    <div
+                        class="hidden md:flex items-center space-x-3 text-tertiary-t opacity-70 absolute h-full top-0 right-3 pointer-events-none"
+                        v-if="!searchFocused && !search"
+                    >
+                        <kbd class="kbd kbd-sm bg-primary">CTRL</kbd>
+                        <span>+</span>
+                        <kbd class="kbd kbd-sm bg-primary">K</kbd>
+                    </div>
+                </div>
             </div>
             <div class="flex items-center space-x-6">
                 <Menu title="✨ Top books" bottom end>
@@ -41,7 +58,10 @@
                             vcenter
                         >
                             <div class="flex justify-between items-center space-x-4">
-                                <Avatar src="/2.jpg" :size="6" />
+                                <Avatar
+                                    src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1103.jpg"
+                                    :size="6"
+                                />
                                 <span
                                     class="text-sm text-text-prim font-bold duration-200 capitalize hidden sm:block"
                                 >
@@ -78,6 +98,26 @@ export default {
         Badge,
         Avatar,
         Card
+    },
+    data() {
+        return {
+            search: '',
+            searchFocused: false,
+            keyListener: null
+        };
+    },
+    created() {
+        this.keyListener = document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'k') {
+                e.preventDefault();
+                let search = document.querySelector('#search');
+                search.focus();
+                search.setSelectionRange(0, search.value.length);
+            }
+        });
+    },
+    destroyed() {
+        document.removeEventListener('keydown', this.keyListener);
     }
 };
 </script>
