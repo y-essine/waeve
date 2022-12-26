@@ -1,11 +1,10 @@
 <template>
-    <head>
-        <title>Waeve - Home</title>
-    </head>
     <div class="flex flex-grow">
         <div class="w-full space-y-4">
-            <NewPost />
-            <PostsList />
+            <div class="px-4 2xs:px-0">
+                <NewPost />
+            </div>
+            <PostsList id="posts-list" />
         </div>
         <div class="hidden md:block ml-4 h-fit sticky top-5">
             <Recommended />
@@ -27,10 +26,19 @@ export default {
         Recommended
     },
     methods: {
-        ...mapActions('posts', ['fetchPosts'])
+        ...mapActions('posts', ['fetchPosts', 'checkIfScrolledToBottom', 'setIsLoaded'])
     },
     created() {
         this.fetchPosts();
+    },
+    mounted() {
+        const postsList = document.getElementById('posts-list');
+        document.addEventListener('scroll', () => this.checkIfScrolledToBottom(postsList));
+    },
+    unmounted() {
+        this.setIsLoaded(false);
+        const postsList = document.getElementById('posts-list');
+        document.removeEventListener('scroll', () => this.checkIfScrolledToBottom(postsList));
     }
 };
 </script>

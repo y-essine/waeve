@@ -1,7 +1,7 @@
 <template>
-    <Card class="group pt-4 pb-2">
-        <div class="top-part px-4">
-            <div class="user-part flex">
+    <Card class="bg-transparent 2xs:bg-primary">
+        <div class="top-part">
+            <div class="user-part flex px-4 pb-2 pt-3">
                 <Avatar :src="post.author.avatar" :size="14" class="cursor-pointer" />
                 <div class="flex w-full justify-between ml-4">
                     <div>
@@ -30,7 +30,7 @@
                     <Icon icon="ellipsis" button round :size="16" :box="24" darker />
                 </div>
             </div>
-            <div class="content-part mt-3">
+            <div class="content-part mt-3 px-4">
                 <div
                     :class="[
                         {
@@ -71,6 +71,7 @@
                             '?w=80&h=80&fit=crop&format=webp'
                         "
                         alt="Post attachment image"
+                        class="w-full"
                     />
                 </div>
             </div>
@@ -116,34 +117,43 @@
                     </div>
                 </div>
             </div>
-            <div class="actions-part pt-4 relative">
+            <div class="actions-part pt-4 relative group">
                 <div
-                    class="w-[90%] left-[5%] absolute border-0 border-t-2 border-tertiary-t opacity-30 pt-2"
+                    class="hidden 2xs:block w-[90%] left-[5%] absolute border-0 border-t-2 border-tertiary-t opacity-30 -pt-2"
                 ></div>
-                <div class="flex justify-evenly pt-2">
+                <div class="flex justify-evenly">
                     <button
                         class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t duration-200 rounded-lg group"
                         name="like"
                     >
-                        <Icon icon="favorite" :size="14" group hoverColor="#d95353"></Icon>
+                        <Icon
+                            icon="favorite"
+                            :size="14"
+                            :box="20"
+                            group
+                            hoverColor="#d95353"
+                        ></Icon>
                         <span class="ml-2 text-xs font-semibold hidden xs:block"> Like </span>
                     </button>
                     <button
                         class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t duration-200 rounded-lg group"
                         name="comment"
                     >
-                        <Icon icon="comment" :size="16" group></Icon>
+                        <Icon icon="comment" :size="15" :box="20" group hoverColor="#74c48b"></Icon>
                         <span class="ml-2 text-xs font-semibold hidden xs:block"> Comment </span>
                     </button>
                     <button
                         class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t duration-200 rounded-lg group"
                         name="repost"
                     >
-                        <Icon icon="undo2" :size="16" group></Icon>
+                        <Icon icon="undo2" :size="16" :box="20" hoverColor="#784c9e" group></Icon>
                         <span class="ml-2 text-xs font-semibold hidden xs:block"> Repost </span>
                     </button>
                 </div>
             </div>
+        </div>
+        <div class="relative h-2">
+            <slot></slot>
         </div>
     </Card>
 </template>

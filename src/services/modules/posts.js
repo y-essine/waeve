@@ -1,7 +1,7 @@
 import { mockApi } from './api';
 
 const postService = {
-    getPosts: () => mockApi().get('/posts'),
+    getPosts: (page, limit) => mockApi().get(`/posts?page=${page}&limit=${limit}`),
     getPost: (id) => mockApi().get(`/posts/${id}`),
     createPost: (data) => mockApi().post('/posts', data),
     updatePost: (id, data) => mockApi().put(`/posts/${id}`, data),

@@ -8,7 +8,14 @@ import { mapActions } from 'vuex';
 export default {
     name: 'App',
     methods: {
-        ...mapActions('nav', ['setCurrentRoute'])
+        ...mapActions('nav', ['setCurrentRoute']),
+        ...mapActions('device', ['initWindowListener', 'destroyWindowListener'])
+    },
+    mounted() {
+        this.initWindowListener();
+    },
+    beforeDestroy() {
+        this.destroyWindowListener();
     },
     watch: {
         $route: {

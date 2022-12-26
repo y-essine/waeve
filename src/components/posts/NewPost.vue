@@ -4,10 +4,11 @@
             src="
                     https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1103.jpg"
             :size="12"
+            class="mr-4 hidden 2xs:block"
         />
-        <div class="flex-1 pl-5">
+        <div class="flex-1">
             <textarea
-                class="w-full h-12 px-4 py-3 text-tertiary-t focus:text-primary-t"
+                class="w-full h-12 px-4 py-3 text-tertiary-t focus:text-primary-t text-sm xs:text-base"
                 placeholder="What's on your mind?"
                 id="mytext"
             ></textarea>
@@ -68,7 +69,7 @@ export default {
             textarea.style.height = textarea.scrollHeight + 'px';
         });
     },
-    destroyed() {
+    beforeDestroy() {
         document.removeEventListener('input', this.inputListener);
     }
 };

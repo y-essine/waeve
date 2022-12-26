@@ -1,5 +1,8 @@
 <template>
-    <div class="flex flex-grow justify-between">
+    <div class="flex flex-grow justify-between px-4 2xs:px-0">
+        <router-link v-if="isMobile" to="/" class="items-center">
+            <Icon icon="waev" color="#D95353" hoverColor="#cbd5e1" button :size="48" />
+        </router-link>
         <div class="pr-3">
             <div
                 class="search relative hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 duration-200 transition-w h-full"
@@ -39,7 +42,7 @@
             </Menu>
             <Menu title="🛎️ Notifcations" bottom end>
                 <template #view>
-                    <Icon icon="notifs" button :size="26">
+                    <Icon icon="notifs" button :size="26" class="group">
                         <Badge />
                     </Icon>
                 </template>
@@ -79,6 +82,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import Menu from '@/components/ui/menu/Menu.vue';
 import Icon from '@/components/ui/icons/Icon.vue';
 import Badge from '@/components/ui/icons/Badge.vue';
@@ -101,6 +105,9 @@ export default {
             keyListener: null
         };
     },
+    computed: {
+        ...mapGetters('device', ['isMobile'])
+    },
     created() {
         this.keyListener = document.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.key === 'k') {
@@ -116,90 +123,3 @@ export default {
     }
 };
 </script>
-
-<!-- import clsx from 'clsx';
-import Avatar from '@/components/ui/avatars/Avatar';
-import Icon from '@/components/ui/icons/Icon';
-import Badge from '@/components/ui/icons/Badge';
-import Card from '@/components/ui/card/Card';
-import Menu from '@/components/ui/menu/Menu';
-
-const Navbar = ({ class }) => {
-    return (
-        <div class={clsx('flex', class)}>
-            <div class="flex items-center pr-8 w-20 smd:w-40">
-                <div class="pl-0 smd:pl-12">
-                    <Icon icon="waev" color="#D95353" button size={48} />
-                </div>
-            </div>
-            <div class="flex flex-grow justify-between">
-                <div class="pr-3">
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        class="px-4 py-1 h-full hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 duration-200 transition-w"
-                    />
-                </div>
-                <div class="flex items-center space-x-6">
-                    <Menu
-                        template={<Icon icon="book" button size={26} />}
-                        title="✨ Top books"
-                        class="mt-4"
-                        bottom
-                        end>
-                        Menu content
-                    </Menu>
-                    <Menu
-                        template={<Icon icon="chat" button size={26} />}
-                        title="📥 Inbox"
-                        class="mt-4"
-                        bottom
-                        end>
-                        Messages here.
-                    </Menu>
-                    <Menu
-                        template={
-                            <Icon icon="notifs" button size={26}>
-                                <Badge />
-                            </Icon>
-                        }
-                        title="🛎️ Notifications"
-                        class="mt-4"
-                        bottom
-                        end>
-                        Notifications here.
-                    </Menu>
-                    <Menu
-                        template={
-                            <Card
-                                class="cursor-pointer group hover:bg-secondary duration-200"
-                                px
-                                py
-                                vcenter>
-                                <div class="flex justify-between items-center space-x-4">
-                                    <Avatar src="/2.jpg" size={6} />
-                                    <span class="text-sm text-text-prim font-bold duration-200 capitalize hidden sm:block">
-                                        YESSINE
-                                    </span>
-                                    <Icon icon="caret-down" end group size={8} />
-                                </div>
-                            </Card>
-                        }
-                        class="mt-4"
-                        bottom
-                        end>
-                        <label class="swap swap-flip text-9xl">
-                            {/* this hidden checkbox controls the state */}
-                            <input type="checkbox" />
-
-                            <div class="swap-on">😈</div>
-                            <div class="swap-off">😇</div>
-                        </label>
-                    </Menu>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default Navbar; -->

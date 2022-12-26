@@ -1,8 +1,8 @@
 <template>
     <div class="flex justify-center">
-        <div class="w-[1280px] h-full flex py-5 px-5 sm:px-8 relative">
+        <div class="w-[1280px] h-full flex py-5 2xs:px-8 relative">
             <!-- sidebar -->
-            <Sidebar class="pr-8" />
+            <Sidebar />
             <div class="w-full">
                 <!-- navbar -->
                 <Navbar class="pb-5" />
