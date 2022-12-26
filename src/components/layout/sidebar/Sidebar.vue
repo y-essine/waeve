@@ -1,6 +1,10 @@
 <template>
-    <div class="pr-8">
+    <div class="sticky top-5 h-fit">
         <div class="space-y-6 w-12 smd:w-32">
+            <router-link to="/">
+                <Icon icon="waev" color="#D95353" hoverColor="#cbd5e1" button :size="48" />
+            </router-link>
+
             <SidebarItem :item="items.home" tooltip :isActive="isHome" />
             <SidebarItem :item="items.explore" tooltip :isActive="isExplore" />
             <SidebarItem :item="items.settings" tooltip :isActive="isSettings" />
@@ -11,6 +15,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import SidebarItem from './SidebarItem.vue';
+import Icon from '@/components/ui/icons/Icon.vue';
 const items = {
     home: {
         name: 'Home',
@@ -33,7 +38,8 @@ const items = {
 export default {
     name: 'Sidebar',
     components: {
-        SidebarItem
+        SidebarItem,
+        Icon
     },
     data() {
         return {

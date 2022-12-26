@@ -2,8 +2,6 @@
     <div
         class="bg-primary rounded-xl text-primary-t flex-col h-fit overflow-hidden"
         :class="{
-            'px-5': px && !py,
-            'py-5': py && !px,
             'flex justify-center items-center': center,
             'flex justify-center': hcenter && !vcenter,
             'flex items-center': vcenter && !hcenter,

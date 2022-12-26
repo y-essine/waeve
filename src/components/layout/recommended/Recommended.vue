@@ -9,7 +9,7 @@
                 <div class="flex items-center">
                     <Avatar :src="p.avatar" :size="12" class="mr-4" />
                     <span>
-                        <div class="text-sm font-medium">{{ p.name }}</div>
+                        <div class="text-sm font-semibold">{{ p.name }}</div>
                         <div class="text-xs opacity-50">@{{ p.username }}</div>
                     </span>
                 </div>

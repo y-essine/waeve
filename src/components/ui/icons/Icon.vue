@@ -6,11 +6,11 @@
                 'icon-' + icon,
                 {
                     'cursor-pointer': button,
-                    'text-secondary-t': !color,
+                    'text-tertiary-t': !color,
                     'hover:text-primary-t': !hoverColor && !disabled,
                     'group-hover:text-primary-t': group && !disabled,
                     'rounded-full hover:bg-white/10': round && !circle,
-                    '!text-primary-t outline !outline-2 outline-accent smd:!outline-0': isActive,
+                    '!text-primary-t ': isActive,
                     '!outline-1 outline-primary': stacked,
                     '!text-tertiary-t !cursor-default': disabled,
                     'opacity-50': darker,

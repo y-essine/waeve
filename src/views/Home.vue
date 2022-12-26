@@ -1,10 +1,13 @@
 <template>
+    <head>
+        <title>Waeve - Home</title>
+    </head>
     <div class="flex flex-grow">
         <div class="w-full space-y-4">
             <NewPost />
             <PostsList />
         </div>
-        <div class="hidden md:block ml-4">
+        <div class="hidden md:block ml-4 h-fit sticky top-5">
             <Recommended />
         </div>
     </div>

@@ -1,11 +1,11 @@
 <template>
     <div class="flex justify-center">
-        <div class="w-[1280px] h-full">
-            <!-- navbar -->
-            <Navbar class="py-5 px-5 sm:px-8" />
-            <div class="flex py-5 px-5 sm:px-8">
-                <!-- sidebar -->
-                <Sidebar />
+        <div class="w-[1280px] h-full flex py-5 px-5 sm:px-8 relative">
+            <!-- sidebar -->
+            <Sidebar class="pr-8" />
+            <div class="w-full">
+                <!-- navbar -->
+                <Navbar class="pb-5" />
                 <!-- content -->
                 <router-view />
             </div>
