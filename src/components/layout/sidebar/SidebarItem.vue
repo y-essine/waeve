@@ -6,7 +6,7 @@
     >
         <Icon :icon="item.icon" group :size="item.size || 30" :box="48" :isActive="isActive" />
         <span
-            class="ml-2 font-semibold text-zinc-400 group-hover:text-zinc-300 duration-200 select-none hidden smd:block"
+            class="ml-2 font-semibold text-zinc-400 group-hover:text-zinc-300 2xs:duration-200 select-none hidden smd:block"
             :class="isActive && '!text-zinc-300'"
         >
             {{ item.name }}

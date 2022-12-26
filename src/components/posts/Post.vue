@@ -123,7 +123,7 @@
                 ></div>
                 <div class="flex justify-evenly">
                     <button
-                        class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t duration-200 rounded-lg group"
+                        class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t 2xs:duration-200 rounded-lg group"
                         name="like"
                     >
                         <Icon
@@ -136,14 +136,14 @@
                         <span class="ml-2 text-xs font-semibold hidden xs:block"> Like </span>
                     </button>
                     <button
-                        class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t duration-200 rounded-lg group"
+                        class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t 2xs:duration-200 rounded-lg group"
                         name="comment"
                     >
                         <Icon icon="comment" :size="15" :box="20" group hoverColor="#74c48b"></Icon>
                         <span class="ml-2 text-xs font-semibold hidden xs:block"> Comment </span>
                     </button>
                     <button
-                        class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t duration-200 rounded-lg group"
+                        class="flex items-center justify-center py-2 text-sm font-medium text-tertiary-t hover:text-primary-t 2xs:duration-200 rounded-lg group"
                         name="repost"
                     >
                         <Icon icon="undo2" :size="16" :box="20" hoverColor="#784c9e" group></Icon>

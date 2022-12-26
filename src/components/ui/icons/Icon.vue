@@ -1,7 +1,7 @@
 <template>
     <div class="relative">
         <span
-            class="icon flex justify-center items-center duration-200 transition-colors relative outline outline-0 rounded-md"
+            class="icon flex justify-center items-center 2xs:duration-200 2xs:transition-colors relative outline outline-0 rounded-md"
             :class="[
                 'icon-' + icon,
                 {

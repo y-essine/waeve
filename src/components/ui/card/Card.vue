@@ -6,7 +6,7 @@
             'flex justify-center': hcenter && !vcenter,
             'flex items-center': vcenter && !hcenter,
             '!h-full': hfull,
-            'hover:bg-secondary duration-200': hover
+            'hover:bg-secondary 2xs:duration-200': hover
         }"
     >
         <div v-if="title" class="text-slate-300 font-semibold px-5 py-3">

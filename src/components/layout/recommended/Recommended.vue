@@ -4,7 +4,7 @@
             <div
                 v-for="p in people"
                 :key="p.username"
-                class="flex items-center justify-between py-3 px-4 hover:bg-secondary duration-200 cursor-pointer w-full"
+                class="flex items-center justify-between py-3 px-4 hover:bg-secondary 2xs:duration-200 cursor-pointer w-full"
             >
                 <div class="flex items-center">
                     <Avatar :src="p.avatar" :size="12" class="mr-4" />
@@ -14,7 +14,7 @@
                     </span>
                 </div>
                 <button
-                    class="bg-slate-300 hover:bg-slate-400 duration-200 text-primary font-semibold text-xs rounded-full py-2 px-5 ml-3 hidden lg:block"
+                    class="bg-slate-300 hover:bg-slate-400 2xs:duration-200 text-primary font-semibold text-xs rounded-full py-2 px-5 ml-3 hidden lg:block"
                 >
                     Follow
                 </button>

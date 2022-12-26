@@ -1,11 +1,18 @@
 <template>
     <div class="flex flex-grow justify-between px-4 2xs:px-0">
         <router-link v-if="isMobile" to="/" class="items-center">
-            <Icon icon="waev" color="#D95353" hoverColor="#cbd5e1" button :size="48" />
+            <Icon
+                icon="waev"
+                color="#D95353"
+                hoverColor="#cbd5e1"
+                button
+                :size="48"
+                @click="fetchPosts()"
+            />
         </router-link>
         <div class="pr-3">
             <div
-                class="search relative hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 duration-200 transition-w h-full"
+                class="search relative hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 2xs:duration-200 2xs:transition-w h-full"
             >
                 <input
                     id="search"
@@ -51,7 +58,7 @@
             <Menu bottom end>
                 <template #view>
                     <Card
-                        class="cursor-pointer group hover:bg-secondary duration-200"
+                        class="cursor-pointer group hover:bg-secondary 2xs:duration-200"
                         px
                         py
                         vcenter
@@ -62,7 +69,7 @@
                                 :size="6"
                             />
                             <span
-                                class="text-sm text-text-prim font-bold duration-200 capitalize hidden sm:block"
+                                class="text-sm text-text-prim font-bold 2xs:duration-200 capitalize hidden sm:block"
                             >
                                 YESSINE
                             </span>
@@ -82,7 +89,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import Menu from '@/components/ui/menu/Menu.vue';
 import Icon from '@/components/ui/icons/Icon.vue';
 import Badge from '@/components/ui/icons/Badge.vue';
@@ -107,6 +114,9 @@ export default {
     },
     computed: {
         ...mapGetters('device', ['isMobile'])
+    },
+    methods: {
+        ...mapActions('posts', ['fetchPosts'])
     },
     created() {
         this.keyListener = document.addEventListener('keydown', (e) => {
