@@ -14,7 +14,10 @@
                     '!border-1 2xs:border-primary': stacked,
                     '!text-tertiary-t !cursor-default': disabled,
                     'opacity-50': darker,
-                    '!justify-end': end
+                    '!justify-end': end,
+                    'group-hover/reactions:text-like': reaction == 'like',
+                    'group-hover/reactions:text-comment': reaction == 'comment',
+                    'group-hover/reactions:text-repost': reaction == 'repost'
                 }
             ]"
             :style="[
@@ -40,6 +43,10 @@
                 class="box absolute top-0 left-0 border-2 border-tertiary 2xs:border-primary rounded-full"
             ></div>
         </span>
+
+        <div class="ghost-div text-like"></div>
+        <div class="ghost-div text-comment"></div>
+        <div class="ghost-div text-share"></div>
     </div>
 </template>
 <script>
@@ -77,6 +84,9 @@ export default {
         group: {
             type: Boolean,
             default: false
+        },
+        reaction: {
+            type: Object
         },
         round: {
             type: Boolean,

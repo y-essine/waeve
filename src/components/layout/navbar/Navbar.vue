@@ -58,7 +58,7 @@
             <Menu bottom end>
                 <template #view>
                     <Card
-                        class="cursor-pointer group hover:bg-secondary 2xs:duration-200"
+                        class="cursor-pointer group hover:bg-secondary 2xs:duration-200 sticky top-5"
                         px
                         py
                         vcenter

@@ -11,7 +11,10 @@ module.exports = {
                 accent: '#e47373',
                 'primary-t': '#cbd5e1',
                 'secondary-t': '#A29CDE',
-                'tertiary-t': '#5a567c'
+                'tertiary-t': '#5a567c',
+                'like': '#d95353',
+                'comment': '#74c48b',
+                'repost': '#784c9e',
             },
             screens: {
                 smd: '880px',
