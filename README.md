@@ -1,4 +1,4 @@
-# Waeve
+# Waeve - 🌊
 
 ## Recommended IDE Setup
 
