@@ -1,9 +1,15 @@
 <template>
+    <metainfo>
+        <template v-slot:title="{ content }">{{
+            content ? `${content} - Waeve` : `Waeve`
+        }}</template>
+    </metainfo>
     <router-view />
     <my-notifications />
 </template>
 
 <script>
+import { useMeta } from 'vue-meta';
 import { mapActions } from 'vuex';
 
 export default {

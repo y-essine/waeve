@@ -1,10 +1,12 @@
 <template>
-    <div class="px-4 2xs:px-0 cursor-default select-none hover:text-secondary-t/90">
-        <h1 @click="notif">Settings</h1>
+    <div class="px-4 2xs:px-0 select-none">
+        <h1 @click="notif" class="w-fit cursor-pointer hover:text-secondary-t/90">Settings</h1>
     </div>
 </template>
 
 <script>
+import { useMeta } from 'vue-meta';
+
 export default {
     name: 'Settings',
     methods: {
@@ -14,6 +16,11 @@ export default {
                 text: 'This is the settings page'
             });
         }
+    },
+    setup() {
+        useMeta({
+            title: 'Settings'
+        });
     }
 };
 </script>

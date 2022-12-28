@@ -1,29 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import NProgress from 'nprogress';
 
-import Explore from '@/views/explore/Explore.vue';
-import Settings from '@/views/settings/Settings.vue';
-
 const routes = [
     {
         path: '/',
-        name: 'Home',
+        name: 'Main',
         component: () => import('@/views/Main.vue'),
         children: [
             {
                 path: '',
                 name: 'Home',
-                component: () => import('@/views/Home.vue')
+                component: () => import('@/views/Home.vue'),
+                meta: {
+                    title: 'Home'
+                }
             },
             {
                 path: '/explore',
                 name: 'Explore',
-                component: Explore
+                component: () => import('@/views/explore/Explore.vue'),
             },
             {
                 path: '/settings',
                 name: 'Settings',
-                component: Settings
+                component: () => import('@/views/settings/Settings.vue')
             }
         ]
     }
