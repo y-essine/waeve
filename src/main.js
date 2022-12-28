@@ -2,9 +2,16 @@ import { createApp } from 'vue';
 import router from '@/router';
 import store from '@/store';
 
-import '@/assets/fonts/inter.css';
-import '@/style.css';
+import plugins from '@/plugins'
+
+import '@/style.less';
+import '@/assets/nprogress.css';
 
 import App from '@/App.vue';
 
-createApp(App).use(router).use(store).mount('#app');
+const app = createApp(App)
+
+app.use(router)
+    .use(store)
+    .use(plugins)
+    .mount('#app');

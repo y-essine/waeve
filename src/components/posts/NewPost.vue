@@ -1,18 +1,17 @@
 <template>
     <div class="flex">
         <Avatar
-            src="
-                    https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1103.jpg"
+            src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1103.jpg"
             :size="12"
             class="mr-4 hidden 2xs:block"
         />
-        <div class="flex-1">
+        <div class="flex-1 h-12">
             <textarea
                 class="w-full h-12 px-4 py-3 text-tertiary-t focus:text-primary-t text-sm xs:text-base"
                 placeholder="What's on your mind?"
                 id="mytext"
             ></textarea>
-            <div class="flex justify-between pt-2">
+            <div v-if="false" class="flex justify-between pt-2">
                 <label
                     class="group flex items-center justify-center w-[30%] py-2 text-sm font-medium text-tertiary-t hover:bg-primary rounded-lg border-2 border-primary cursor-pointer"
                     htmlFor="photo"

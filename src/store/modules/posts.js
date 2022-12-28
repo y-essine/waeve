@@ -5,7 +5,6 @@ export default {
     namespaced: true,
     state: () => ({
         posts: [],
-        pages: 0,
         isLoading: false,
         isLoaded: false,
     }),
@@ -22,12 +21,6 @@ export default {
         setLoaded(state, isLoaded) {
             state.isLoaded = isLoaded;
         },
-        incrementPages(state) {
-            state.pages += 1;
-        },
-        resetPages(state) {
-            state.pages = 0;
-        },
     },
     actions: {
         setPosts({ commit }, posts) {
@@ -36,12 +29,12 @@ export default {
         async fetchPosts({ commit }, page = 1, limit = 8) {
             commit('setLoading', true);
             commit('setLoaded', false);
-            commit('resetPages');
+            commit('pages/reset');
             const req = await getPosts(page, limit)
                 .then((res) => {
                     commit('setLoading', false);
                     commit('setLoaded', true);
-                    commit('incrementPages');
+                    commit('pages/increment');
                     commit('setPosts', res.data);
                 })
                 .catch((err) => {
@@ -50,12 +43,14 @@ export default {
                     console.log(err);
                 });
         },
-        async fetchMorePosts({ commit }, page = 1, limit = 8) {
+        async fetchMorePosts({ state, commit }, page = 1, limit = 8) {
+            if (state.isLoading || !state.isLoaded)
+                return;
             commit('setLoading', true);
             const req = await getPosts(page, limit)
                 .then((res) => {
                     commit('setLoading', false);
-                    commit('incrementPages');
+                    commit('pages/increment');
                     commit('addPosts', res.data);
                 })
                 .catch((err) => {
@@ -63,17 +58,35 @@ export default {
                     console.log(err);
                 });
         },
-        checkIfScrolledToBottom({ commit, state, dispatch, rootGetters }, targetElement) {
-            if (!state.isLoaded || state.pages > 3 || state.isLoading || !rootGetters['nav/isHome']) return;
-            const isScrolledToBottom =
-                window.scrollY + window.innerHeight >= targetElement.scrollHeight - 1000;
-
-            if (isScrolledToBottom) {
-                dispatch('fetchMorePosts', state.pages + 1);
-            }
-        },
         setIsLoaded({ commit }, isLoaded) {
             commit('setLoaded', isLoaded);
+        }
+
+    },
+    modules: {
+        pages: {
+            namespaced: true,
+            state: () => ({
+                pages: 0,
+            }),
+            mutations: {
+                increment(state) {
+                    state.pages += 1;
+                },
+                reset(state) {
+                    state.pages = 0;
+                }
+            },
+            actions: {
+                handleScrollFetch({ state, dispatch, rootGetters }) {
+                    if (state.pages > 3 || !rootGetters['nav/isHome'])
+                        return;
+                    const listRect = document.querySelector('#posts-list').getBoundingClientRect();
+                    if (listRect.bottom < window.innerHeight + 200 + listRect.height * 0.3 / (state.pages)) {
+                        dispatch('posts/fetchMorePosts', state.pages + 1, { root: true });
+                    }
+                },
+            }
         }
 
     }

@@ -1,11 +1,6 @@
 <template>
     <div class="w-full pb-8 2xs:pb-0">
-        <div v-if="isLoading && !isLoaded" class="flex justify-center items-center pb-8 pt-6">
-            <div
-                class="w-12 h-12 border-[6px] border-secondary border-t-accent rounded-full animate-spin"
-            ></div>
-        </div>
-        <div v-else-if="isLoaded" class="2xs:space-y-4 pt-4 2xs:pt-0">
+        <div class="2xs:space-y-4 pt-4 2xs:pt-0">
             <Post
                 v-for="(post, index) in posts"
                 :key="post.id"
@@ -23,8 +18,8 @@
 </template>
 
 <script>
+import Post from '@/components/posts/Post.vue';
 import { mapState } from 'vuex';
-import Post from './Post.vue';
 
 export default {
     name: 'PostsList',
@@ -32,7 +27,15 @@ export default {
         Post
     },
     computed: {
-        ...mapState('posts', ['posts', 'isLoading', 'isLoaded'])
+        ...mapState('posts', ['posts'])
     }
 };
+</script>
+
+<script setup>
+import { useStore } from 'vuex';
+const store = useStore();
+
+const fetchPosts = () => store.dispatch('posts/fetchPosts');
+await fetchPosts();
 </script>
