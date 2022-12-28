@@ -1,13 +1,11 @@
 <template>
     <div v-if="!isMobile" class="sticky top-5 h-fit pr-8">
         <div class="space-y-6 w-12 smd:w-32">
-            <div @click.stop="fetchPosts()">
-                <router-link to="/">
-                    <Icon icon="waev" color="#D95353" hoverColor="#cbd5e1" button :size="48" />
-                </router-link>
-            </div>
+            <router-link to="/">
+                <Icon icon="waev" color="#D95353" hoverColor="#cbd5e1" button :size="48" />
+            </router-link>
 
-            <SidebarItem :item="items.home" tooltip :isActive="isHome" @click="fetchPosts()" />
+            <SidebarItem :item="items.home" tooltip :isActive="isHome" />
             <SidebarItem :item="items.explore" tooltip :isActive="isExplore" />
             <SidebarItem :item="items.settings" tooltip :isActive="isSettings" />
         </div>

@@ -13,7 +13,7 @@
             {{ title }}
         </div>
         <div :class="{ 'px-5': px, 'py-3': py }">
-            <slot></slot>
+            <slot />
         </div>
     </div>
 </template>

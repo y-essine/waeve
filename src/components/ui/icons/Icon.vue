@@ -31,7 +31,7 @@
                 { transformStyle: 'preserve-3d' }
             ]"
         >
-            <slot></slot>
+            <slot />
             <div
                 v-if="circle"
                 :style="[
@@ -86,7 +86,7 @@ export default {
             default: false
         },
         reaction: {
-            type: Object
+            type: String
         },
         round: {
             type: Boolean,

@@ -1,14 +1,7 @@
 <template>
     <div class="flex flex-grow justify-between px-4 2xs:px-0">
         <router-link v-if="isMobile" to="/" class="items-center">
-            <Icon
-                icon="waev"
-                color="#D95353"
-                hoverColor="#cbd5e1"
-                button
-                :size="48"
-                @click="fetchPosts()"
-            />
+            <Icon icon="waev" color="#D95353" hoverColor="#cbd5e1" button :size="48" />
         </router-link>
         <div class="pr-3">
             <div

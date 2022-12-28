@@ -1,7 +1,7 @@
 <template>
     <Card class="!bg-transparent 2xs:!bg-primary">
         <div class="top-part">
-            <div class="user-part flex px-4 pb-2 pt-3">
+            <div class="user-part flex px-4 pt-3">
                 <Avatar :src="post.author.avatar" :size="14" class="cursor-pointer" />
                 <div class="flex w-full justify-between ml-4">
                     <div>
@@ -52,12 +52,12 @@
                 </div> -->
             </div>
         </div>
-        <div class="middle-part">
+        <div class="middle-part my-">
             <div class="flex-1 flex-wrap">
                 <div
                     v-for="image in [post.images[0]]"
                     :key="image"
-                    class="h-0 overflow-hidden relative pb-[56.25%] pt-4"
+                    class="h-0 overflow-hidden relative pb-[56.25%] mt-4"
                 >
                     <v-lazy-image
                         :src="
@@ -169,7 +169,7 @@
             </div>
         </div>
         <div class="relative h-2">
-            <slot></slot>
+            <slot />
         </div>
     </Card>
 </template>
