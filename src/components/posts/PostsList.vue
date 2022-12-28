@@ -19,7 +19,7 @@
 
 <script>
 import Post from '@/components/posts/Post.vue';
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
     name: 'PostsList',
@@ -27,7 +27,16 @@ export default {
         Post
     },
     computed: {
-        ...mapState('posts', ['posts'])
+        ...mapState('posts', ['posts', 'isLoaded'])
+    },
+    methods: {
+        ...mapActions('posts/pages', ['handleScrollFetch'])
+    },
+    unmounted() {
+        window.removeEventListener('scroll', this.handleScrollFetch);
+    },
+    mounted() {
+        if (this.isLoaded) window.addEventListener('scroll', this.handleScrollFetch);
     }
 };
 </script>
@@ -36,6 +45,6 @@ export default {
 import { useStore } from 'vuex';
 const store = useStore();
 
-const fetchPosts = () => store.dispatch('posts/fetchPosts');
+const fetchPosts = () => store.dispatch('posts/fetchPosts', { page: 1, limit: 8 });
 await fetchPosts();
 </script>

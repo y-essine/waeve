@@ -5,7 +5,14 @@
 </template>
 
 <script>
+import { useMeta } from 'vue-meta';
+
 export default {
-    name: 'Explore'
+    name: 'Explore',
+    setup() {
+        useMeta({
+            title: 'Explore'
+        });
+    }
 };
 </script>

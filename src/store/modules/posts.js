@@ -26,7 +26,7 @@ export default {
         setPosts({ commit }, posts) {
             commit('setPosts', posts);
         },
-        async fetchPosts({ commit }, page = 1, limit = 8) {
+        async fetchPosts({ commit }, { page = 1, limit = 8 }) {
             commit('setLoading', true);
             commit('setLoaded', false);
             commit('pages/reset');
@@ -43,7 +43,7 @@ export default {
                     console.log(err);
                 });
         },
-        async fetchMorePosts({ state, commit }, page = 1, limit = 8) {
+        async fetchMorePosts({ state, commit }, { page = 1, limit = 8 }) {
             if (state.isLoading || !state.isLoaded)
                 return;
             commit('setLoading', true);
@@ -83,7 +83,7 @@ export default {
                         return;
                     const listRect = document.querySelector('#posts-list').getBoundingClientRect();
                     if (listRect.bottom < window.innerHeight + 200 + listRect.height * 0.3 / (state.pages)) {
-                        dispatch('posts/fetchMorePosts', state.pages + 1, { root: true });
+                        dispatch('posts/fetchMorePosts', { page: state.pages + 1 }, { root: true });
                     }
                 },
             }
