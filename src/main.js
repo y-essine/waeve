@@ -4,7 +4,7 @@ import store from '@/store';
 
 import plugins from '@/plugins'
 
-import '@/style.less';
+import '@/style.css';
 import '@/assets/nprogress.css';
 
 import App from '@/App.vue';

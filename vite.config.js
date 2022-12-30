@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import analyze from "rollup-plugin-analyzer";
 import { resolve } from 'path';
 
 const root = resolve(__dirname, 'src');
@@ -15,6 +14,17 @@ export default defineConfig({
     },
     plugins: [vue()],
     build: {
-        rollupOptions: {},
+        rollupOptions: {
+            output: [{
+                entryFileNames: '[name].js',
+                chunkFileNames: '[name].js',
+                assetFileNames: '[name].[ext]',
+                manualChunks: {
+                    'vendor/index': ['vuex', 'vue-router', '@kyvg/vue3-notification'],
+                    'vendor/umi': ['umi-request'],
+                    'vendor/meta': ['vue-meta'],
+                }
+            }]
+        },
     },
 });

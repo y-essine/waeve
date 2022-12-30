@@ -8,8 +8,8 @@
                 class="search relative hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 2xs:duration-200 2xs:transition-w h-full"
             >
                 <input
-                    id="search"
                     type="text"
+                    ref="search"
                     placeholder="Search..."
                     class="px-4 py-1 w-full h-full"
                     autocomplete="off"
@@ -115,7 +115,7 @@ export default {
         this.keyListener = document.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.key === 'k') {
                 e.preventDefault();
-                let search = document.querySelector('#search');
+                let search = this.$refs.search;
                 search.focus();
                 search.setSelectionRange(0, search.value.length);
             }
