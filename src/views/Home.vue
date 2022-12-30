@@ -1,8 +1,8 @@
 <template>
     <metainfo>
         <template v-slot:title="{ content }">{{
-            content ? `${content} - Waeve` : `Waeve`
-        }}</template>
+        content ? `${content} - Waeve` : `Waeve`
+            }}</template>
     </metainfo>
     <div class="flex flex-grow">
         <div class="w-full space-y-4">

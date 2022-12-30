@@ -31,11 +31,11 @@ export default {
             commit('setLoaded', false);
             commit('pages/reset');
             const req = await getPosts(page, limit)
-                .then((res) => {
+                .then((data) => {
                     commit('setLoading', false);
                     commit('setLoaded', true);
                     commit('pages/increment');
-                    commit('setPosts', res.data);
+                    commit('setPosts', data);
                 })
                 .catch((err) => {
                     commit('setLoading', false);
@@ -48,10 +48,10 @@ export default {
                 return;
             commit('setLoading', true);
             const req = await getPosts(page, limit)
-                .then((res) => {
+                .then((data) => {
                     commit('setLoading', false);
                     commit('pages/increment');
-                    commit('addPosts', res.data);
+                    commit('addPosts', data);
                 })
                 .catch((err) => {
                     commit('setLoading', false);

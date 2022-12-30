@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-xs font-normal opacity-30 mt-1">{{ createdAt }}</div>
+                        <div class="text-xs font-normal opacity-30 mt-1">{{ ago(post.createdAt) }}</div>
                     </div>
                     <Icon icon="ellipsis" button round :size="16" :box="24" darker />
                 </div>
@@ -175,7 +175,8 @@
 </template>
 
 <script>
-import moment from 'moment';
+import dayjs from 'dayjs';
+import fromNow from 'dayjs/plugin/relativeTime';
 import Avatar from '@/components/ui/avatars/Avatar.vue';
 import Icon from '@/components/ui/icons/Icon.vue';
 import Card from '@/components/ui/card/Card.vue';
@@ -209,10 +210,11 @@ export default {
             required: true
         }
     },
-    computed: {
-        createdAt() {
-            return moment(this.post.createdAt).fromNow();
-        }
+    methods: {
+        ago(date) {
+            dayjs.extend(fromNow);
+            return dayjs(date).fromNow();
+        },
     }
 };
 </script>
