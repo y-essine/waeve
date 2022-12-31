@@ -15,16 +15,16 @@ export default defineConfig({
     plugins: [vue()],
     build: {
         rollupOptions: {
-            output: [{
+            output: {
                 entryFileNames: '[name].js',
                 chunkFileNames: '[name].js',
                 assetFileNames: '[name].[ext]',
                 manualChunks: {
-                    'vendor/index': ['vuex', 'vue-router', '@kyvg/vue3-notification'],
-                    'vendor/umi': ['umi-request'],
-                    'vendor/meta': ['vue-meta'],
+                    'vendor/vendor': ['vuex', 'vue-router', '@kyvg/vue3-notification', 'vue-meta', 'vue-virtual-scroller'],
                 }
-            }]
+            },
+            // make @/services external
+            external: ['src/services'],
         },
     },
 });

@@ -6,9 +6,9 @@ import { createMetaManager } from 'vue-meta';
 
 export default {
     install: (app) => {
+        app.use(createMetaManager());
         app.use(notifications);
         // app.use(smoothreflow);
-        app.use(createMetaManager());
         // app.component('SmoothResize', SmoothResize);
         app.component('MyNotifications', MyNotifications);
     }

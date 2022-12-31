@@ -1,5 +1,7 @@
-import { postService } from '@/services';
-const { getPosts } = postService;
+const getPosts = async (p, l) => {
+    const service = await import('@/services/modules/posts').then((m) => m.default);
+    return service.getPosts(p, l);
+};
 
 export default {
     namespaced: true,
@@ -68,6 +70,7 @@ export default {
             namespaced: true,
             state: () => ({
                 pages: 0,
+                pagesLimit: 4
             }),
             mutations: {
                 increment(state) {
@@ -79,7 +82,7 @@ export default {
             },
             actions: {
                 handleScrollFetch({ state, dispatch, rootGetters }) {
-                    if (state.pages > 3 || !rootGetters['nav/isHome'])
+                    if (state.pages > state.pagesLimit || !rootGetters['nav/isHome'])
                         return;
                     const listRect = document.querySelector('#posts-list').getBoundingClientRect();
                     if (listRect.bottom < window.innerHeight + 200 + listRect.height * 0.3 / (state.pages)) {

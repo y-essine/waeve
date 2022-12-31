@@ -5,22 +5,11 @@
         </router-link>
         <div class="pr-3">
             <div
-                class="search relative hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 2xs:duration-200 2xs:transition-w h-full"
-            >
-                <input
-                    type="text"
-                    ref="search"
-                    placeholder="Search..."
-                    class="px-4 py-1 w-full h-full"
-                    autocomplete="off"
-                    v-model="search"
-                    @focus="searchFocused = true"
-                    @blur="searchFocused = false"
-                />
-                <div
-                    class="hidden md:flex items-center space-x-3 text-tertiary-t opacity-70 absolute h-full top-0 right-3 pointer-events-none"
-                    v-if="!searchFocused && !search"
-                >
+                class="search relative hidden xs:block w-24 xs:w-32 md:w-64 lg:w-96 2xs:duration-200 2xs:transition-w h-full">
+                <input type="text" ref="search" placeholder="Search..." class="px-4 py-1 w-full h-full"
+                    autocomplete="off" v-model="search" @focus="searchFocused = true" @blur="searchFocused = false" />
+                <div class="hidden md:flex items-center space-x-3 text-tertiary-t opacity-70 absolute h-full top-0 right-3 pointer-events-none"
+                    v-if="!searchFocused && !search">
                     <kbd class="kbd kbd-sm bg-primary">CTRL</kbd>
                     <span>+</span>
                     <kbd class="kbd kbd-sm bg-primary">K</kbd>
@@ -50,20 +39,12 @@
             </Menu>
             <Menu bottom end>
                 <template #view>
-                    <Card
-                        class="cursor-pointer group hover:bg-secondary 2xs:duration-200 sticky top-5"
-                        px
-                        py
-                        vcenter
-                    >
+                    <Card class="cursor-pointer group hover:bg-secondary 2xs:duration-200 sticky top-5" px py vcenter>
                         <div class="flex justify-between items-center space-x-4">
                             <Avatar
                                 src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1103.jpg"
-                                :size="6"
-                            />
-                            <span
-                                class="text-sm text-text-prim font-bold 2xs:duration-200 capitalize hidden sm:block"
-                            >
+                                :size="6" />
+                            <span class="text-sm select-none font-bold 2xs:duration-200 capitalize hidden sm:block t">
                                 YESSINE
                             </span>
                             <Icon icon="caret-down" end group :size="8" />
