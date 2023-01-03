@@ -10,12 +10,9 @@
             <SidebarItem :item="items.settings" tooltip :isActive="isSettings" />
         </div>
     </div>
-    <div
-        v-else
-        class="fixed bottom-0 h-20 z-30 w-full bg-[#07070b]/90 flex items-center justify-evenly"
-    >
+    <div v-else class="fixed bottom-0 h-20 z-30 w-full bg-[#07070b]/90 flex items-center justify-evenly pb-5">
         <SidebarItem :item="items.explore" tooltip :isActive="isExplore" />
-        <SidebarItem :item="items.home" tooltip :isActive="isHome" @click="fetchPosts()" />
+        <SidebarItem :item="items.home" tooltip :isActive="isHome" />
         <SidebarItem :item="items.settings" tooltip :isActive="isSettings" />
     </div>
 </template>
