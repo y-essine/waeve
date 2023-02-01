@@ -1,12 +1,12 @@
 import { postService } from '@/services';
-const { getPosts } = postService;
+const { getPosts, getDummyPosts } = postService;
 
 export default {
     namespaced: true,
     state: () => ({
         posts: [],
         isLoading: false,
-        isLoaded: false,
+        isLoaded: false
     }),
     mutations: {
         setPosts(state, posts) {
@@ -20,7 +20,7 @@ export default {
         },
         setLoaded(state, isLoaded) {
             state.isLoaded = isLoaded;
-        },
+        }
     },
     actions: {
         setPosts({ commit }, posts) {
@@ -31,11 +31,11 @@ export default {
             commit('setLoaded', false);
             commit('pages/reset');
             const req = await getPosts(page, limit)
-                .then((data) => {
+                .then((r) => {
                     commit('setLoading', false);
                     commit('setLoaded', true);
                     commit('pages/increment');
-                    commit('setPosts', data);
+                    commit('setPosts', r.data);
                 })
                 .catch((err) => {
                     commit('setLoading', false);
@@ -44,14 +44,13 @@ export default {
                 });
         },
         async fetchMorePosts({ state, commit }, { page = 1, limit = 8 }) {
-            if (state.isLoading || !state.isLoaded)
-                return;
+            if (state.isLoading || !state.isLoaded) return;
             commit('setLoading', true);
             const req = await getPosts(page, limit)
-                .then((data) => {
+                .then((r) => {
                     commit('setLoading', false);
                     commit('pages/increment');
-                    commit('addPosts', data);
+                    commit('addPosts', r.data);
                 })
                 .catch((err) => {
                     commit('setLoading', false);
@@ -61,13 +60,12 @@ export default {
         setIsLoaded({ commit }, isLoaded) {
             commit('setLoaded', isLoaded);
         }
-
     },
     modules: {
         pages: {
             namespaced: true,
             state: () => ({
-                pages: 0,
+                pages: 0
             }),
             mutations: {
                 increment(state) {
@@ -79,15 +77,16 @@ export default {
             },
             actions: {
                 handleScrollFetch({ state, dispatch, rootGetters }) {
-                    if (state.pages > 3 || !rootGetters['nav/isHome'])
-                        return;
+                    if (state.pages > 3 || !rootGetters['nav/isHome']) return;
                     const listRect = document.querySelector('#posts-list').getBoundingClientRect();
-                    if (listRect.bottom < window.innerHeight + 200 + listRect.height * 0.3 / (state.pages)) {
+                    if (
+                        listRect.bottom <
+                        window.innerHeight + 200 + (listRect.height * 0.3) / state.pages
+                    ) {
                         dispatch('posts/fetchMorePosts', { page: state.pages + 1 }, { root: true });
                     }
-                },
+                }
             }
         }
-
     }
 };
