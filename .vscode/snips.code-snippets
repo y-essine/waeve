@@ -1,0 +1,22 @@
+{
+    "New component snippet": {
+        "scope": "vue",
+        "prefix": "wvc",
+        "body": [
+            "<template>",
+            "\t<div>",
+            "\t\t$2",
+            "\t</div>",
+            "</template>",
+            "",
+            "<script>",
+            "export default {",
+            "\tname: '$1',",
+            "\tcomponents: {},",
+            "\tprops: {},",
+            "}",
+            "</script>"
+        ],
+        "description": "New vue component"
+    }
+}
