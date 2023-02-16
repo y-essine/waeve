@@ -1,4 +1,4 @@
-# Waeve - 🌊
+# Waeve - 🌊 
 
 Deployed here: https://waeve.vercel.app/
 
@@ -7,7 +7,7 @@ The app uses vue3, vuex, umi-request
 
 No backend as posts are loaded from [dummyapi.io](https://dummyapi.io/)
 
-## Config
+## Configuration
 The timeline posts are loaded from [dummyapi.io](https://dummyapi.io/) so you should make an account, grab your ```app-id``` from [your dummyapi dashboard](https://dummyapi.io/account) then make a .env in the root folder and type
 ```
 VITE_DUMMYAPI_KEY = <replace_this_with_your_key>
